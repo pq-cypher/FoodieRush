@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<script src="js/jquery-3.4.1.js"></script>
+<meta name="viewport" 
+  content="width=device-width, 
+  initial-scale=1.0, 
+  user-scalable=no" />
+<title>CoinMinersFxt</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="css/css/all.css">
+<script defer src="css/js/all.js"></script>
+<style type="text/css">
+img[alt="www.000webhost.com"]{display:none;}
+*{
+box-sizing:border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+margin:0;
+padding:0;
+background:white;
+width:100%;
+height:100%;
+}
+a{
+text-decoration:none;
+}
+p{
+margin:0;
+padding:0;
+font-family:sans-serif;
+}
+button:focus{
+outline: none;
+}
+input:focus{
+outline: none;
+}
+
+.nav{
+width:100%;
+height:90px;
+transition:1s;
+position:fixed;
+top:0;
+left:0;
+z-index:5;
+background:rgba(255,255,255,0.9);
+overflow:hidden;
+}
+.nav-logo {
+width:40px;
+height:40px;
+margin:5px 0px 0px 20px;
+border-radius:50%;
+float:left;
+}
+.nav-text {
+float:left;
+margin:18px 0px 0px 20px;
+font-family: 'FontAwesome';
+letter-spacing:0.5mm;
+font-weight:bold;
+color:#333333;
+font-size:14px;
+}
+.nav-dropdown-button {
+width:60px;
+height:50px;
+color:#444444;
+display:flex;
+float:right;
+align-items:center;
+justify-content:center;
+font-size:17px;
+transition:0.5s;
+}
+.cart-button {
+width:60px;
+height:50px;
+color:#444444;
+display:flex;
+float:right;
+align-items:center;
+justify-content:center;
+font-size:17px;
+transition:0.5s;
+position:relative;
+}
+.cart-button .number{
+position:absolute;
+top:8px;
+right:16px;
+border-radius:50%;
+background:#1aa7ec;
+width:15px;
+height:15px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:9px;
+font-weight:550;
+color:white;
+box-shadow:0px -1px 3px rgba(0,0,0,0.2);
+transition:0.2s;
+}
+.top-nav {
+background:white;
+height:50px;
+width:100%;
+}
+.image-carousel {
+width:300px;
+height:150px;
+margin:auto;
+margin-top:100px;
+position:relative;
+overflow:hidden;
+border-radius:10px;
+}
+.image-carousel div{
+position:absolute;
+top:0;
+right:-100%;
+transition:1s;
+width:100%;
+height:100%;
+}
+.image-carousel div img{
+width:100%;
+height:100%;
+}
+.dot-wrapper {
+position:absolute;
+bottom:5px;
+left:100px;
+background:rgba(0,0,0,0.5);
+height:20px;
+width:100px;
+display:flex;
+justify-content:center;
+align-items:center;
+border-radius:20px;
+}
+.small-dot {
+width:8px;
+height:8px;
+background:transparent;
+border:1px solid white;
+border-radius:50%;
+float:left;
+margin:0px 0px 0px 3px;
+}
+.big-dot {
+width:10px;
+height:10px;
+background:white;
+border:1px solid white;
+border-radius:50%;
+float:left;
+margin:0px 0px 0px 3px;
+transition:0.5s;
+}
+
+.food-menu-wrapper {
+width:45.5%;
+height:200px;
+background:white;
+box-shadow:0px 0px 5px rgba(0,0,0,0.12);
+float:left;
+border-radius:5px;
+margin:10px 0px 0px 3%;
+position:relative;
+overflow:hidden;
+}
+.food-menu-image {
+width:100%;
+background:#eeeeee;
+height:120px;
+float:left;
+}
+.food-menu-name{
+float:left;
+width:100%;
+height:35px;
+color:#333333;
+font-weight:500;
+font-family:sans-serif;
+font-size:14px;
+margin-top:5px;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+.food-menu-price {
+color:#444444;
+font-weight:400;
+text-align:center;
+font-family:sans-serif;
+font-size:15px;
+position:absolute;
+bottom:15px;
+left:10px;
+font-family:'fontawesome';
+letter-spacing:0.3mm;
+}
+.food-menu-price .old-price{
+font-size:10px;
+letter-spacing:0.1mm;
+text-decoration:line-through;
+margin-left:2px;
+color:#777777;
+font-family:sans-serif;
+}
+.food-menu-add {
+color:white;
+font-weight:400;
+text-align:center;
+font-family:sans-serif;
+font-size:18px;
+position:absolute;
+bottom:8px;
+right:10px;
+border-radius:50%;
+height:35px;
+width:35px;
+background:#1aa7ec;
+border:1px solid #1aa7ec;
+box-shadow:0px 0px 5px #1aa7ec;
+font-size:14px;
+background:radial-gradient(cobaltblue,#1aa7ec);
+transition:0.5s;
+opacity:1;
+}
+.food-menu-add-hide {
+width:0;
+height:0;
+position:absolute;
+bottom:25px;
+right:27px;
+padding:0;
+margin:0;
+border:none;
+overflow:hidden;
+transition:0.5s;
+opacity:0;
+}
+
+.food-menu-add:hover{
+background:white;
+color:#1aa7ec;
+}
+
+.food-horizontal-scroll {
+width:100%;
+height:40px;
+overflow-x:scroll;
+overflow-y:hidden;
+border-top:0.1mm solid #d1d1d1;
+border-bottom:0.1mm solid #d1d1d1;
+scroll-behavior: smooth;
+}
+.food-horizontal-scroll .horizontal-container {
+width:620px;
+}
+.food-name {
+height:30px;
+margin:5px 0px 0px 0px;
+float:left;
+border-radius:2px;
+color:#444444;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:14px;
+font-weight:400;
+}
+.food-name-active{
+background:#333333;
+color:white;
+height:30px;
+margin:5px 0px 0px 10px;
+float:left;
+border-radius:20px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:14px;
+font-weight:400;
+}
+
+.heading-fieldset {
+width:98%;
+height:30px;
+border:none;
+margin:auto;
+border-top:1px solid #d1d1d1;
+border-left:1px solid #d1d1d1;
+border-right:1px solid #d1d1d1;
+text-align:center;
+margin-bottom:10px;
+margin-top:40px;
+border-top-left-radius:10px;
+border-top-right-radius:10px;
+}
+.heading-fieldset legend{
+color:#555555;
+border:1px solid #d1d1d1;
+height:30px;
+padding:6px 15px 0px 15px;
+font-size:14px;
+border-radius:3px;
+font-weight:400;
+box-shadow:0px 0px 5px rgba(0,0,0,0.12);
+}
+.close-fieldset-heading {
+width:99%;
+height:15px;
+border:none;
+margin:auto;
+border-bottom:1px solid #d1d1d1;
+border-left:1px solid #d1d1d1;
+border-right:1px solid #d1d1d1;
+margin-bottom:20px;
+margin-top:10px;
+border-bottom-left-radius:10px;
+border-bottom-right-radius:10px;
+}
+
+.dropdown-container {
+width:100%;
+background:white;
+}
+.dropdown-container .links{
+width:100%;
+height:50px;
+padding:20px 0px 0px 20px;
+color:#555555;
+font-weight:500;
+font-family:'fontawesome';
+font-size:11px;
+border-bottom:0.1mm solid #d1d1d1;
+letter-spacing:0.3mm;
+}
+.dropdown-container .links:hover{
+color:white;
+background:#999999;
+}
+.dropdown-container .logout {
+width:100px;
+height:35px;
+border:1px solid #ff5555;
+border-radius:2px;
+color:#ff5555;
+margin:auto;
+background:white;
+display:block;
+margin-top:20px;
+font-family:'fontawesome';
+letter-spacing:0.4mm;
+font-size:11px;
+}
+.dropdown-container .logout:hover{
+background:#ff5555;
+color:white;
+}
+
+
+
+.shopping-cart-modal {
+width:100%;
+height:100%;
+display:block;
+position:fixed;
+top:0;
+right:-110%;
+background:white;
+z-index:6;
+overflow:hidden;
+box-shadow:0px 0px 5px rgba(0,0,0,0.12);
+transition:1s;
+}
+.cart-nav{
+width:100%;
+height:50px;
+border-bottom:0.1mm solid #d1d1d1;
+overflow:hidden;
+}
+.cart-nav-title {
+float:left;
+font-family:'fontawesome';
+margin-left:30px;
+color:#444444;
+font-size:15px;
+font-weight:400;
+letter-spacing:0.4mm;
+display:flex;
+align-items:center;
+height:50px;
+}
+.cart-nav-title .cart-logo{
+margin-right:20px;
+}
+.cart-nav-close{
+width:60px;
+height:50px;
+color:#ff5555;
+float:right;
+font-size:22px;
+transition:0.1s;
+background:white;
+border:none;
+font-weight:600;
+font-family:'fontawesome';
+}
+.cart-nav-close:hover{
+background:#ff5555;
+color:white;
+}
+
+.food-menu-quantity{
+width:70px;
+border:1px solid #1aa7ec;
+position:absolute;
+bottom:8px;
+right:10px;
+border-radius:5px;
+height:30px;
+background:#1aa7ec;
+font-size:14px;
+background:radial-gradient(cobaltblue,#1aa7ec);
+overflow:hidden;
+transition:0.5s;
+opacity:1;
+}
+.food-menu-quantity-hide {
+width:0;
+height:0;
+position:absolute;
+bottom:25px;
+right:27px;
+padding:0;
+margin:0;
+border:none;
+overflow:hidden;
+transition:0.5s;
+opacity:0;
+}
+#food-menu-quantity .food-menu-quantity-buttons{
+width:20px;
+background:#1aa7ec;
+height:100%;
+color:white;
+border:none;
+font-size:13px;
+float:left;
+}
+#food-menu-quantity .food-menu-quantity-buttons:hover{
+background:#1a84ec;
+}
+#food-menu-quantity .food-menu-quantity-input{
+width:28px;
+background:white;
+float:left;
+border:none;
+height:100%;
+text-align:center;
+font-size:14px;
+color:#444444;
+font-weight:550;
+}
+
+
+
+.cart-heading{
+width:150px;
+height:40px;
+border-radius:5px;
+background:white;
+margin:auto;
+margin-top:20px;
+margin-bottom:20px;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0px 0px 5px rgba(0,0,0,0.12);
+color:#444444;
+font-weight:400;
+font-family:'fontawesome';
+font-size:12px;
+letter-spacing:0.3mm;
+}
+.cart-order-wrapper {
+width:96%;
+display:block;
+margin:auto;
+height:100px;
+box-shadow:0px 0px 5px rgba(0,0,0,0.12);
+border-radius:5px;
+margin-bottom:10px;
+}
+.cart-order-img {
+float:left;
+margin:5px 0px 0px 5px;
+border-radius:5px;
+height:90px;
+width:110px;
+overflow:hidden;
+}
+.cart-order-text-wrapper {
+margin-left:130px;
+padding-top:10px;
+position:relative;
+height:100px;
+padding-right:10px;
+}
+.cart-order-title{
+width:100%;
+color:#444444;
+font-size:15px;
+font-family:sans-serif;
+font-weight:500;
+height:50px;
+display:flex;
+align-items:center;
+}
+.cart-order-price {
+font-family:'fontawesome';
+position:absolute;
+bottom:15px;
+left:0px;
+font-size:16px;
+color:#444444;
+font-weight:400;
+letter-spacing:0.3mm;
+}
+.cart-order-quantity {
+position:absolute;
+bottom:10px;
+right:10px;
+width:99px;
+height:30px;
+}
+.cart-quantity-minus {
+float:left;
+width:33px;
+height:30px;
+background:#1aa7ec;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+border-top-left-radius:5px;
+border-bottom-left-radius:5px;
+border:1px solid #1a90ec;
+font-size:12px;
+}
+.cart-quantity-minus:hover{
+background:#1a84ec;
+}
+.cart-quantity-plus {
+float:left;
+width:33px;
+height:30px;
+background:#1aa7ec;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+border-top-right-radius:5px;
+border-bottom-right-radius:5px;
+border:1px solid #1a90ec;
+font-size:12px;
+}
+.cart-quantity-plus:hover{
+background:#1a84ec;
+}
+.cart-quantity-number{
+float:left;
+width:33px;
+height:28px;
+display:block;
+margin-top:1px;
+background:white;
+text-align:center;
+color:#444444;
+border:1px solid #1a90ec;
+border-left:none;
+border-right:none;
+font-size:15px;
+font-weight:500;
+}
+.checkout-button{
+width:90%;
+height:45px;
+border-radius:4px;
+color:white;
+background:#1a90ec;
+border:1px solid #1a90ec;
+margin:auto;
+display:block;
+font-weight:400;
+font-family:'fontawesome';
+letter-spacing:0.5mm;
+font-size:12px;
+box-shadow:0px 0px 6px rgba(0,0,0,0.3);
+margin-top:50px;
+transition:0.5s;
+}
+.checkout-button:hover{
+transform: perspective(500px) translateZ(30px);
+color:#1a90ec;
+background:white;
+}
+.empty-cart-error{
+width:90%;
+height:200px;
+padding:10px;
+border-radius:5px;
+border:1px solid #777777;
+background:#eeeeee;
+margin:auto;
+margin-top:30px;
+}
+.empty-cart-error .empty-cart-text {
+font-size:15px;
+font-family:'fontawesome';
+letter-spacing:0.5mm;
+color:#777777;
+font-weight:550;
+text-align:center;
+margin-top:50px;
+}
+.empty-cart-error .empty-cart-icon-wrapper {
+position:relative;
+width:50px;
+height:50px;
+margin:auto;
+margin-top:15px;
+}
+.empty-cart-error .empty-cart-icon {
+position:absolute;
+top:0px;
+left:0;
+font-size:50px;
+color:#777777;
+}
+.empty-cart-error .empty-cart-icon-times{
+position:absolute;
+top:3px;
+left:25px;
+color:#ffbbbb;
+font-size:25px;
+font-family:'fontawesome';
+}
+
+		
+@keyframes shake {
+0%{transform: translate(1px, 1px) rotate(0deg);}
+10%{transform: translate(-1px, -2px) rotate(-1deg);}
+20%{transform: translate(-3px, 0px) rotate(1deg);}
+30%{transform: translate(3px, 2px) rotate(0deg);}
+40%{transform: translate(1px, -1px) rotate(1deg);}
+50%{transform: translate(-1px, 2px) rotate(-1deg);}
+60%{transform: translate(-3px, 1px) rotate(0deg);}
+70%{transform: translate(3px, 1px) rotate(-1deg);}
+80%{transform: translate(-1px, -1px) rotate(1deg);}
+90%{transform: translate(1px, 2px) rotate(0deg);}
+100%{transform: translate(1px, -2px) rotate(-1deg);}
+}
+
+
+
+.content-not-available-modal{
+width:100%;
+height:100%;
+position:fixed;
+top:0;
+left:0;
+background:rgba(0,0,0,0.99);
+z-index:10;
+display:flex;
+justify-content:center;
+align-items:center;
+transition:0.5s;
+display:none;
+opacity:0;
+}
+.content-not-available-modal .content-wrapper {
+width:90%;
+height:160px;
+}
+.content-not-available-modal .text{
+font-family:'fontawesome';
+font-size:20px;
+color:white;
+letter-spacing:0.8mm;
+text-align:center;
+line-height:40px;
+font-weight:900;
+}
+.content-not-available-modal .ban-icon{
+font-size:70px;
+margin-top:10px;
+color:#ff5555;
+filter:drop-shadow(0px 0px 4px red);
+}
+</style>
+</head>
+<body>
+	<nav class="nav" id="nav" >
+		<div class="top-nav" >
+			<img class="nav-logo" src="favicon.ico">
+			<p class="nav-text" >Foods Naija</p>
+			<p class="nav-dropdown-button down" id="dropdown-button" onclick="showDropdown()"><i class="fa fa-chevron-down" ></i></p>
+			<p class="cart-button open" id="cart-button" onclick="showCart()">
+				<i class="fa fa-shopping-cart"></i>
+				<span class="number" id="cart-button-number" >0</span>
+			</p>
+		</div>
+		<div class="food-horizontal-scroll" id="food-horizontal-scroll" >
+			<div class="horizontal-container">
+				<p class="food-name-active" id="nav-food-button:nigerian-rice" style="width:150px" onclick="scrollDownMeal(this)">Nigerian Rice</p></a>
+				<p class="food-name" id="nav-food-button:swallow-wraps" style="width:120px"  onclick="scrollDownMeal(this)">Swallow Wraps</p></a>
+				<p class="food-name" id="nav-food-button:soup" style="width:120px"  onclick="scrollDownMeal(this)">Soup</p></a>
+				<p class="food-name" id="nav-food-button:rice-bowl" style="width:100px"  onclick="scrollDownMeal(this)">Rice Bowl</p></a>
+				<p class="food-name" id="nav-food-button:pasta" style="width:100px"  onclick="scrollDownMeal(this)">Pasta</p></a>
+			</div>
+		</div>
+		<div class="dropdown-container">
+			<!--<p class="links" onclick="displayContentNotAvailableModal()">Profile</p>-->
+			<p class="links" onclick="displayContentNotAvailableModal()">Today`s Menu</p>
+			<p class="links" onclick="displayContentNotAvailableModal()">Order History</p>
+			<p class="links" onclick="displayContentNotAvailableModal()">Party/Bulk Order</p>
+			<p class="links" onclick="displayContentNotAvailableModal()">Payments</p>
+			<p class="links" onclick="displayContentNotAvailableModal()">Address Book</p>
+			<p class="links" onclick="displayContentNotAvailableModal()">Contact Us</p>
+			<p class="links" onclick="displayContentNotAvailableModal()">About Us</p>
+			<p class="links" onclick="displayContentNotAvailableModal()">Privacy</p>
+			<!--<button class="logout" onclick="displayContentNotAvailableModal()">LOGOUT</button>-->
+		</div>
+	</nav>
+	<div class="image-carousel" id="image-carousel" >
+		<div style="background:red" ><img src="images/food9.jpeg" ></div>
+		<div style="background:green" ><img src="images/food10.jpeg" ></div>
+		<div style="background:yellow" ><img src="images/food11.jpeg" ></div>
+		<div style="background:blue" ><img src="images/food12.jpeg" ></div>
+		<p class="dot-wrapper" id="dot-wrapper" >
+			<span class="small-dot" ></span>
+			<span class="small-dot" ></span>
+			<span class="small-dot" ></span>
+			<span class="small-dot" ></span>
+		</p>
+	</div>
+	<p style="clear:both" ></p>
+	
+	
+	<div>
+		<fieldset class="heading-fieldset" >
+			<legend class="legend" id="nigerian-rice" >Nigeria Rice Dishes</legend>
+		</fieldset>
+		
+		<p style="clear:both" ></p>
+		<div id="nigerian-rice-container" >
+			<!--
+			<div class="food-menu-wrapper">
+				<img class="food-menu-image" src="images/food9.jpeg" >
+				<p class="food-menu-name" >White Rice And Vegetable Stew with plantain</p>
+				<p class="food-menu-price" ><span class="old-price">$100</span><span class="current-price" >$50</span></p>
+				<button class="food-menu-add"  onclick="foodMenuQuantityChange(this,'add')"><i class="fa fa-plus" ></i></button>
+				<div class="food-menu-quantity-hide" id="food-menu-quantity" >
+					<button class="food-menu-quantity-buttons" onclick="foodMenuQuantityChange(this,'minus')"><i class="fa fa-chevron-left" ></i></button>
+					<input class="food-menu-quantity-input" type="number" value="0">
+					<button class="food-menu-quantity-buttons" onclick="foodMenuQuantityChange(this,'plus')"><i class="fa fa-chevron-right" ></i></button>
+				</div>
+			</div>-->
+		</div>
+		<p style="clear:both" ></p>
+		<fieldset class="close-fieldset-heading" ></fieldset>
+	</div>
+		
+	<div>
+		<fieldset class="heading-fieldset" >
+			<legend class="legend" id="swallow-wraps" >Swallow Wraps</legend>
+		</fieldset>
+		<p style="clear:both" ></p>
+		<div id="swallow-wraps-container" ></div>
+		<p style="clear:both" ></p>
+		<fieldset class="close-fieldset-heading" ></fieldset>
+	</div>
+	
+	<div>
+		<fieldset class="heading-fieldset" >
+			<legend class="legend" id="soup" >Soup</legend>
+		</fieldset>
+		<p style="clear:both" ></p>
+		<div id="soup-container" ></div>
+		<p style="clear:both" ></p>
+		<fieldset class="close-fieldset-heading" ></fieldset>
+	</div>
+	
+	<div>
+		<fieldset class="heading-fieldset" >
+			<legend class="legend" id="rice-bowl" >Rice Bowl</legend>
+		</fieldset>
+		<p style="clear:both" ></p>
+		<div id="rice-bowl-container" ></div>
+		<p style="clear:both" ></p>
+		<fieldset class="close-fieldset-heading" ></fieldset>
+	</div>
+	
+	<div>
+		<fieldset class="heading-fieldset" >
+			<legend class="legend" id="pasta" >Pasta</legend>
+		</fieldset>
+		<p style="clear:both" ></p>
+		<div id="pasta-container" ></div>
+		<p style="clear:both" ></p>
+		<fieldset class="close-fieldset-heading" ></fieldset>
+	</div>
+	
+	<div style="display:none;width:200px;height:200px;background:white;position:fixed;top:200px;left:100px;" >
+		<p id="test1" ></p>
+		<p id="test2" ></p>
+		<p id="test3" ></p>
+	</div>
+	<p style="margin-bottom:1000px" ></p>
+	
+	
+	<div class="shopping-cart-modal" id="shopping-cart-modal">
+		<div class="cart-nav" >
+			<p class="cart-nav-title"><span class="cart-logo" ><i class="fa fa-shopping-cart"></i></span>Shopping Cart</p>
+			<button class="cart-nav-close" onclick="closeCart()">&times</button>
+		</div>
+		
+		<p class="cart-heading">Items In Cart</p>
+		
+		<div id="cart-container" >
+			<!--<div class="cart-order-wrapper">
+				<img class="cart-order-img" src="images/food9.jpeg" >
+				<div class="cart-order-text-wrapper">
+					<p class="cart-order-title" >Nigerian Rice With Vegetable Stew</p>
+					<p class="cart-order-price">$100</p>
+					<div class="cart-order-quantity">
+						<button class="cart-quantity-minus" onclick="cartQuantityChange(this,'minus')"><i class="fa fa-chevron-left" ></i></button>
+						<input class="cart-quantity-number" type="number" value="0">
+						<button class="cart-quantity-plus" onclick="cartQuantityChange(this,'plus')"><i class="fa fa-chevron-right" ></i></button>
+					</div>
+				</div>
+			</div>-->
+		</div>
+		<div class="empty-cart-error" id="empty-cart-error">
+			<p class="empty-cart-text" >Your cart is empty</p>
+			<p class="empty-cart-icon-wrapper">
+				<i class="fa fa-shopping-cart empty-cart-icon"></i>
+				<span class="empty-cart-icon-times">&times;</span>
+			</p>
+		</div>
+		<button class="checkout-button" id="checkout-button" style="display:none" onclick="displayContentNotAvailableModal()">CHECKOUT (&#8358;<span id="checkout-button-price" ></span>) <i class="fa fa-chevron-right" ></i></button>
+	</div>
+	
+	<div class="content-not-available-modal" id="content-not-available-modal" >
+		<div class="content-wrapper">
+			<p class="text">This content is not available yet <br><i class="fa fa-ban ban-icon"></i></p>
+		</div>
+	</div>
+	
+	<script src="js/food-api.js"></script>
+	<script type="text/javascript">
+		var singleQuote = "'";
+		var cart = [];
+		
+		nigerianRiceContainer = document.getElementById("nigerian-rice-container");
+		riceBowlContainer = document.getElementById("rice-bowl-container");
+		swallowWrapsContainer = document.getElementById("swallow-wraps-container");
+		pastaContainer = document.getElementById("pasta-container");
+		soupContainer = document.getElementById("soup-container");
+		function loadAllFoods(){
+			var nigerian_rice = "";
+			var riceBowlStrings = "";
+			var swallowWrapsStrings = "";
+			var soupStrings = "";
+			var pastaStrings = "";
+			for(x=0;x<food.length;x++){
+				var id = food[x].id;
+				var title = food[x].title;
+				var price = food[x].price;
+				var crossedPrice = food[x].crossedPrice;
+				var discount = food[x].discount;
+				var pictureUrl = food[x].pictureUrl;
+				var category = food[x].category;
+				var quantity = food[x].quantity;
+				
+				if(quantity == 0){
+					foodMenuAddClass = "food-menu-add";
+					foodMenuQuantityClass = "food-menu-quantity-hide";
+				}else{
+					foodMenuAddClass = "food-menu-add-hide";
+					foodMenuQuantityClass = "food-menu-quantity";
+				}
+				
+				
+				var string = "";
+				string += '<div class="food-menu-wrapper">';
+					string += '<img class="food-menu-image" src="images/'+pictureUrl+'" >';
+					string += '<p class="food-menu-name" >'+title+'</p>';
+					if(discount == true){
+						string += '<p class="food-menu-price" ><span class="current-price" >&#8358;'+price+'</span><span class="old-price">&#8358;'+crossedPrice+'</span></p>';
+					}else{
+						string += '<p class="food-menu-price" >&#8358;'+price+'</p>';
+					}
+					string += '<button class="'+foodMenuAddClass+'"  onclick="foodMenuQuantityChange(this,'+singleQuote+''+id+''+singleQuote+','+singleQuote+'add'+singleQuote+')"><i class="fa fa-plus" ></i></button>';
+					string += '<div class="'+foodMenuQuantityClass+'" id="food-menu-quantity" >';
+						string += '<button class="food-menu-quantity-buttons" onclick="foodMenuQuantityChange(this,'+singleQuote+''+id+''+singleQuote+','+singleQuote+'minus'+singleQuote+')"><i class="fa fa-chevron-left" ></i></button>';
+						string += '<input class="food-menu-quantity-input" type="number" value="'+quantity+'">';
+						string += '<button class="food-menu-quantity-buttons" onclick="foodMenuQuantityChange(this,'+singleQuote+''+id+''+singleQuote+','+singleQuote+'plus'+singleQuote+')"><i class="fa fa-chevron-right" ></i></button>';
+					string += '</div>';
+				string += '</div>';
+				if(food[x].category == "nigerian-rice"){
+					nigerian_rice += string;
+				}
+				if(food[x].category == "rice-bowl"){
+					riceBowlStrings += string;
+				}
+				if(food[x].category == "swallow-wraps"){
+					swallowWrapsStrings += string;
+				}
+				if(food[x].category == "soup"){
+					soupStrings += string;
+				}
+				if(food[x].category == "pasta"){
+					pastaStrings += string;
+				}
+			}
+			nigerianRiceContainer.innerHTML = nigerian_rice;
+			riceBowlContainer.innerHTML = riceBowlStrings;
+			swallowWrapsContainer.innerHTML = swallowWrapsStrings;
+			soupContainer.innerHTML = soupStrings;
+			pastaContainer.innerHTML = pastaStrings;
+		}
+		loadAllFoods();
+
+
+		cartContainer = document.getElementById("cart-container");
+		function loadShoppingCart(){
+			var cartStrings = "";
+			for(c=0;c<cart.length;c++){
+				for(x=0;x<food.length;x++){
+					if(cart[c] == food[x].id){
+						var id = food[x].id;
+						var title = food[x].title;
+						var price = food[x].price;
+						var crossedPrice = food[x].crossedPrice;
+						var discount = food[x].discount;
+						var pictureUrl = food[x].pictureUrl;
+						var category = food[x].category;
+						var quantity = food[x].quantity;
+					
+						var string = "";
+						string += '<div class="cart-order-wrapper">';
+							string += '<img class="cart-order-img" src="images/'+pictureUrl+'" >';
+							string += '<div class="cart-order-text-wrapper">';
+								string += '<p class="cart-order-title" >'+title+'</p>';
+								string += '<p class="cart-order-price">&#8358;'+price+'</p>';
+								string += '<div class="cart-order-quantity">';
+									string += '<button class="cart-quantity-minus" onclick="cartQuantityChange(this,'+singleQuote+''+id+''+singleQuote+','+singleQuote+'minus'+singleQuote+')"><i class="fa fa-chevron-left" ></i></button>';
+									string += '<input class="cart-quantity-number" type="number" value="'+quantity+'">';
+									string += '<button class="cart-quantity-plus" onclick="cartQuantityChange(this,'+singleQuote+''+id+''+singleQuote+','+singleQuote+'plus'+singleQuote+')"><i class="fa fa-chevron-right" ></i></button>';
+								string += '</div>';
+							string += '</div>';
+						string += '</div>';
+						cartStrings += string;
+					}
+				}
+			}
+			cartContainer.innerHTML = cartStrings;
+		}
+		loadShoppingCart();
+		
+		
+		
+				
+		
+		
+		nav = document.getElementById("nav");
+		dropdownButton = document.getElementById("dropdown-button");
+		imageCarousel = document.getElementById("image-carousel");
+		dotWrapper = document.getElementById("dot-wrapper");
+		
+		function showDropdown(){
+			if(dropdownButton.className == "nav-dropdown-button down"){
+				dropdownButton.style.transform = "rotate(180deg)";
+				dropdownButton.className = "nav-dropdown-button up";
+				nav.style.height = "100%";
+				nav.style.background = "white";
+				updateBodyScroll("do-not-scroll");
+			}else{
+				dropdownButton.style.transform = "rotate(360deg)";
+				nav.style.height = "90px";
+				dropdownButton.className = "nav-dropdown-button down";
+				nav.style.background = "rgba(255,255,255,0.9)";
+				setTimeout(function(){
+					dropdownButton.style.transition = "none";
+					dropdownButton.style.transform = "rotate(0deg)";
+						setTimeout(function(){
+							dropdownButton.style.transition = "0.5s";
+						},100);
+				},500);
+				updateBodyScroll("scroll");
+			}
+		}
+		
+		images = imageCarousel.getElementsByTagName("div");
+		dots = dotWrapper.getElementsByTagName("span");
+		images[0].style.right="0px";
+		dots[0].className="big-dot";
+		var xImages = 1;
+		setInterval(function(){
+			for(y=0;y<images.length;y++){
+				images[(y)].style.transition="1s";
+			}
+			for(y=0;y<dots.length;y++){
+				dots[(y)].className = "small-dot";
+			}
+			images[xImages].style.right="0px";
+			dots[xImages].className="big-dot";
+			if(xImages != 0){
+				images[(xImages-1)].style.right="100%";
+			}else{
+				images[(images.length-1)].style.right="100%";
+			}
+			setTimeout(function(){
+				for(y=0;y<images.length;y++){
+					if(y!=xImages){
+						images[(y)].style.transition="none";
+						images[(y)].style.right="-100%";
+					}
+				}
+				if(xImages >= (images.length-1)){
+				xImages = 0;
+				}else{
+				xImages = xImages + 1;
+				}
+			},1000);
+		},2000);
+		
+		
+		legendElements = document.getElementsByTagName("legend");
+		foodHorizontalScroll = document.getElementById("food-horizontal-scroll");		
+		
+		document.onscroll=function(){
+		    if($(document).scrollTop() == 0) {
+		        document.getElementById("nav").style.boxShadow="none";
+		    }else{
+		        document.getElementById("nav").style.boxShadow="rgba(0, 0, 0, 0.12) 0px 3px 5px";
+		    }
+		    
+		    for(q=0;q<legendElements.length;q++){
+				el = legendElements[q];
+				elDistanceToTop = window.pageYOffset + el.getBoundingClientRect().top;
+				
+				if( q == (legendElements.length-1) ){
+			    	elNextDistanceToTop = $(document).scrollTop() + 1000;
+				}else{
+					elNext = legendElements[q+1];
+				    elNextDistanceToTop = window.pageYOffset + elNext.getBoundingClientRect().top;
+				}
+				document.getElementById("test3").innerHTML = elNextDistanceToTop;
+			    activePElemnt = document.getElementById("nav-food-button:"+el.id);
+			    
+			    if( ($(document).scrollTop()>(elDistanceToTop-100)) && ($(document).scrollTop()<(elNextDistanceToTop-100)) ){
+				    pElements = foodHorizontalScroll.getElementsByTagName("p");
+				    for(z=0;z<pElements.length;z++){
+				    	//Reset all navbar food menu to unselected
+					    pElements[z].className = "food-name";
+				    }
+			    	// Select active navber food menu and slide horizontal bar
+				    activePElemnt.className = "food-name-active";
+				    elDistanceToLeft = window.pageXOffset + activePElemnt.getBoundingClientRect().left;
+				    foodHorizontalScroll.scrollBy(elDistanceToLeft-10, 0);
+				    document.getElementById("test1").innerHTML=$(document).scrollTop();
+				    document.getElementById("test2").innerHTML = elDistanceToTop;
+			    }
+		    }
+		}
+
+		function scrollDownMeal(el){
+			elParentDiv = el.parentElement;
+			pElements = elParentDiv.getElementsByTagName("p");
+			elId = el.id.split(":")[1];
+			legendElement = document.getElementById(elId);
+			elDistanceToTop = window.pageYOffset + legendElement.getBoundingClientRect().top;
+			if( ($(document).scrollTop()+100) == (elDistanceToTop) ){
+				for(z=0;z<pElements.length;z++){
+					pElements[z].className = "food-name";
+				}
+			}
+			window.scrollBy(0, elDistanceToTop-99-$(document).scrollTop());
+		}
+		
+		checkoutButtonPrice = document.getElementById("checkout-button-price");
+		function foodMenuQuantityChange(el,id,mode){
+			inputField = el.parentElement.getElementsByClassName("food-menu-quantity-input")[0];
+			if(mode == "add"){
+				inputWrapper = el.parentElement.getElementsByClassName("food-menu-quantity-hide")[0];
+				el.className = "food-menu-add-hide";
+				inputWrapper.className = "food-menu-quantity";
+				inputField.value = 1;
+				updateFoodQuantity(id,1);
+				updateShoppingCart(id,'add');
+			}
+			if(mode == "minus"){
+				newQuantityValue = (inputField.value*1) - 1;
+				inputField.value = newQuantityValue;
+				updateFoodQuantity(id, newQuantityValue);
+				if(inputField.value == 0){
+					foodMenuAddButton = el.parentElement.parentElement.getElementsByClassName("food-menu-add-hide")[0];
+					foodMenuAddButton.className = "food-menu-add";
+					el.parentElement.className = "food-menu-quantity-hide";
+					updateShoppingCart(id,'remove');
+				}
+			}
+			if(mode == "plus"){
+				newQuantityValue = (inputField.value*1) + 1;
+				inputField.value = newQuantityValue;
+				updateFoodQuantity(id, newQuantityValue);
+			}
+			loadShoppingCart();
+			updateCartButtonNumber();
+			displayCheckoutButton();
+			displayEmptyCartError();
+			checkoutButtonPrice.innerHTML = calculateTotalCartPrice();
+			navigator.vibrate(200); 
+		}
+		
+		
+		function cartQuantityChange(el,id,mode){
+			inputField = el.parentElement.getElementsByClassName("cart-quantity-number")[0];
+			if(mode == "minus"){
+				newQuantityValue = inputField.value = (inputField.value*1) - 1;
+				inputField.value = newQuantityValue;
+				updateFoodQuantity(id, newQuantityValue);
+				if(inputField.value == 0){
+					updateShoppingCart(id,'remove');
+					loadShoppingCart();
+				}
+			}
+			if(mode == "plus"){
+				newQuantityValue = (inputField.value*1) + 1;
+				inputField.value = newQuantityValue;
+				updateFoodQuantity(id, newQuantityValue);
+			}
+			loadAllFoods();
+			updateCartButtonNumber();
+			displayCheckoutButton();
+			displayEmptyCartError();
+			checkoutButtonPrice.innerHTML = calculateTotalCartPrice();
+			navigator.vibrate(200); 
+		}
+		
+		function updateShoppingCart(id,action){
+			if(action == "add"){
+				cart.push(id);
+			}
+			if(action == "remove"){
+				index = cart.indexOf(id);
+				if (index > -1) {
+					cart.splice(index, 1);
+				}
+			}//alert(cart);
+		}
+		
+		function updateFoodQuantity(id,quantity){
+			for(x=0;x<food.length;x++){
+				if(food[x].id == id){
+					food[x].quantity = quantity;
+				}
+			}
+		}
+		
+		cartButton = document.getElementById("cart-button");
+		cartButtonNumber = document.getElementById("cart-button-number");
+		function updateCartButtonNumber(){
+			totalQuantityInCart = 0;
+			for(x=0;x<food.length;x++){
+				totalQuantityInCart += food[x].quantity;
+			}
+			cartButtonNumber.innerHTML = totalQuantityInCart;
+			cartButton.style.animation = "shake 0.5s linear 0s 2 reverse";
+			cartButtonNumber.style.background = '#1acaec';
+			setTimeout(function(){
+				cartButtonNumber.style.background = '#1aa7ec';
+				cartButton.style.animation = "none";
+			},1000);
+		}
+		
+		function displayEmptyCartError(action){
+			emptyCartError = document.getElementById("empty-cart-error");
+			if(cart.length == 0){
+				emptyCartError.style.display = "block";
+			}else{
+				emptyCartError.style.display = "none";
+			}
+		}
+		
+		function displayCheckoutButton(action){
+			checkoutButton = document.getElementById("checkout-button");
+			if(cart.length != 0){
+				checkoutButton.style.display = "block";
+			}else{
+				checkoutButton.style.display = "none";
+			}
+		}
+		
+		function calculateTotalCartPrice(){
+			totalCartPrice = 0;
+			for(x=0;x<cart.length;x++){
+				for(y=0;y<food.length;y++){
+					if(food[y].id == cart[x]){
+						totalCartPrice += food[y].quantity * food[y].price;
+					}
+				}
+			}
+			return totalCartPrice;
+		}
+		
+		contentNotAvailableModal = document.getElementById("content-not-available-modal");
+		function displayContentNotAvailableModal(action){
+			navigator.vibrate(100); 
+			contentNotAvailableModal.style.display = "flex";
+			setTimeout(function(){
+				contentNotAvailableModal.style.opacity = "1";
+				setTimeout(function(){
+					contentNotAvailableModal.style.opacity = "0";
+					setTimeout(function(){
+						contentNotAvailableModal.style.display = "none";
+					},500);
+				},1500);
+			},10);
+		}
+		
+		function updateBodyScroll(action){
+			body = document.querySelectorAll("body")[0];
+			if(action == "scroll"){
+				body.style.overflow = "auto";
+			}
+			if(action == "do-not-scroll"){
+				body.style.overflow = "hidden";
+			}
+		}
+		
+		shoppingCartModal = document.getElementById("shopping-cart-modal");
+		function showCart(){
+			shoppingCartModal.style.right = "0px";
+			updateBodyScroll("do-not-scroll");
+		}
+		function closeCart(){
+			shoppingCartModal.style.right = "-110%";
+			updateBodyScroll("scroll");
+		}
+	</script>
+</body>
+</html>
