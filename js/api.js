@@ -911,7 +911,7 @@ let allAvailableDishApi = [
 		"dishId": "1234567893",
 		"dishName": "Chicken Thigh(Two Pieces)",
 		"imageUrl": "images/dish/1234567893.png",
-		"category": "main-dish,nigerian,trending",
+		"category": "main-dish,nigerian",
 		"dishType": "main",
 		"individualDishes": [
 			{
@@ -927,7 +927,7 @@ let allAvailableDishApi = [
 		"dishId": "0000000001",
 		"dishName": "White Rice And vegetable stew with plantain",
 		"imageUrl": "images/dish/white-rice-and-vegetable-stew-with-plantain.jpeg",
-		"category": "main-dish,nigerian,trending",
+		"category": "main-dish,nigerian",
 		"dishType": "main",
 		"individualDishes": [
 			{
