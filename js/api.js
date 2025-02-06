@@ -1,14 +1,14 @@
 let siteDetailsApi = {
-	companyName: "GHOST SITES",
-	websiteName: "logistic1.cv-swap",
-	websiteUrl: 'https://logistic1.cv-swap.com',
+	companyName: "FOODIE RUSH",
+	websiteName: "foodierush",
+	websiteUrl: '',
 	companyAddress: '',
 	customerSupport: {
 		emailArray: [
 			{
 				id: "1234567890",
-				email: "admin@hooktechie.com",
-				emailUrl: "mailto:admin@hooktechie.com",
+				email: "admin@foodierush.com",
+				emailUrl: "mailto:admin@foodierush.com",
 			},
 		],
 		whatsappArray: [
@@ -890,7 +890,7 @@ let allAvailableDishApi = [
 		"dishId": "1234567892",
 		"dishName": "Beef Stew",
 		"imageUrl": "images/dish/1234567892.png",
-		"category": "Addon,nigerian,trending,stew",
+		"category": "Addon,nigerian,stew",
 		"dishType": "addon",
 		"individualDishes": [
 			{
